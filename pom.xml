@@ -17,7 +17,7 @@
     <properties>
         <java.version>1.8</java.version>
         <slf4jVersion>1.7.16</slf4jVersion>
-        <springfoxVersion>2.8.0</springfoxVersion>
+        <springfoxVersion>2.7.0</springfoxVersion>
     </properties>
 
     <dependencies>
@@ -30,6 +30,11 @@
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-test</artifactId>
             <scope>test</scope>
+        </dependency>
+
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-web</artifactId>
         </dependency>
 
         <dependency>
