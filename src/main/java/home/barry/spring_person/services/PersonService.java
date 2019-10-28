@@ -35,7 +35,7 @@ public class PersonService {
                 return i;
             }
         }
-        return -1;
+        return PRODUCT_NOT_PRESENT;
     }
 
 }
