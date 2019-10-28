@@ -2,16 +2,26 @@ pipeline {
     agent any
     stages {
         stage ('Check Dependencies'){
-            echo 'Checking Dependencies'
+            steps{
+                echo 'Checking Dependencies'
+            }
         }
         stage ('Unit Tests'){
-            echo 'Running Unit Tests'
+            steps{
+                echo 'Running Unit Tests'
+            }
         }
         stage ('Build'){
-            echo 'Buildjng Stage'
+            steps{
+                echo 'Build'
+            }
         }
         stage ('Deploy'){
-            echo 'Deploying'
+            steps{
+                echo 'Deploying'
+            }
         }
     }
 }
+
+
