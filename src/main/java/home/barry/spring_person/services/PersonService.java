@@ -25,13 +25,13 @@ public class PersonService {
     }
 
     public void removePerson(String name, String info){
-        personList.indexOf(findIndex(name,info));
+        personList.remove(findIndex(name,info));
     }
 
     public int findIndex(String name, String info){
         for ( int i = 0; i < personList.size(); i++){
             Person person = personList.get(i);
-            if ( (person.getName() == name) && (person.getInfo() == info)){
+            if ( (person.getName().equals(name)) && (person.getInfo().equals(info))){
                 return i;
             }
         }
