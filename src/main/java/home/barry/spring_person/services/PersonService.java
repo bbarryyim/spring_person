@@ -17,10 +17,10 @@ public class PersonService {
         personList.add(person);
     }
 
-    public void replacePerson(Person oldPerson, Person newPerson){
-        int indexPerson = personList.indexOf(oldPerson);
+    public void replacePerson(String nameOld, String infoOld, String name, String info){
+        int indexPerson = personList.indexOf(findIndex(nameOld, infoOld));
         if (indexPerson != PRODUCT_NOT_PRESENT){
-            personList.set(indexPerson, newPerson);
+            personList.set(indexPerson, new Person(name, info));
         }
     }
 
