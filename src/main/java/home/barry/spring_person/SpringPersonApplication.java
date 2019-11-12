@@ -19,7 +19,7 @@ public class SpringPersonApplication implements CommandLineRunner {
 	@Override
 	public void run(String... args){
 		logger.info("{}", env.getProperty("JAVA_HOME"));
-		logger.info("Application Name = {}|| env = {}", env.getProperty("app.name"), env.getProperty("app.env"));
+		logger.info("Application Name = {}| env = {}", env.getProperty("app.name"), env.getProperty("app.env"));
 	}
 
 	public static void main(String[] args) {
