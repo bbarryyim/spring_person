@@ -1,37 +1,39 @@
+def project_path = ""
 pipeline {
     agent any
-
     tools {
-        maven 'Maven 3.3.9'
-        jdk 'jdk8'
+        jdk 'jdk11'
+        maven 'maven3'
     }
-
     stages {
-        stage ('Initialize'){
-            steps{
-                echo 'Initializing...'
-                sh '''
-                    echo "PATH = ${PATH}"
-                    echo "M2_HOME = ${M2_HOME}"
-                '''
+        stage('Test java installation') {
+            steps {
+                sh 'java -version'
+                sh 'which java'
             }
         }
-        stage ('Unit Tests'){
-            steps{
-                echo 'Running Unit Tests'
+        stage('Test maven installation') {
+            steps {
+                sh 'mvn -version'
+                sh 'which mvn'
             }
         }
-        stage ('Build'){
+        stage('Clone repo from Git') {
             steps{
-                echo 'Build'
+                git 'https://github.com/bbarryyim/spring_person.git'
             }
         }
-        stage ('Deploy'){
+        stage('Compile and Package'){
             steps{
-                echo 'Deploying'
+                dir(project_path) {
+                    sh 'mvn clean compile package'
+                }
+            }
+        }
+        stage('Post'){
+            steps{
+                archiveArtifacts 'target/*.jar'
             }
         }
     }
 }
-
-
